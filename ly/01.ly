@@ -715,7 +715,7 @@ pianoLH = \relative c' {
   \layout {
     \context {
       \Lyrics
-      \override LyricText #'font-size = #1.3
+      \override LyricText #'font-size = #1.1
       \override VerticalAxisGroup #'staff-affinity = #0
       \override LyricText #'X-offset = #center-on-word
     }
