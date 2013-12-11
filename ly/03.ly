@@ -179,6 +179,10 @@ tenorMusic = \relative c' {
 }
 
 tenorWords = \lyricmode {
+  \set stanza = #"1. "
+  Hark! hear you not a cheer -- ful Noise,
+  \repeat unfold 8 \skip1
+  See where light Stars bright
 }
 
 tenorWordsII = \lyricmode {
@@ -230,15 +234,14 @@ pianoLH = \relative c' {
     \new Lyrics = "altosIII"  \lyricsto "sopranos" \sopWordsIII
     \new Lyrics = "altosIV"  \lyricsto "sopranos" \sopWordsIV
     \new Lyrics = "altosV"  \lyricsto "sopranos" \sopWordsV
-   \new Staff = men <<
+    \new Lyrics = "tenors"
+    \new Staff = men <<
       \clef bass
       \new Voice = "tenors" { \voiceOne << \global \tenorMusic >> }
       \new Voice = "basses" { \voiceTwo << \global \bassMusic >> }
     >>
     \context Lyrics = "altos" \lyricsto "sopranos" \sopWords
-    \new Lyrics \with { alignAboveContext = #"tenors" } \lyricsto "tenors" \tenorWordsIII
-    \new Lyrics \with { alignAboveContext = #"tenors" } \lyricsto "tenors" \tenorWordsII
-    \new Lyrics \with { alignAboveContext = #"tenors" } \lyricsto "tenors" \tenorWords
+    \context Lyrics = "tenors" \lyricsto "tenors" \tenorWords
   >>
 %    \new PianoStaff << \new Staff { \new Voice { \pianoRH } } \new Staff { \clef "bass" \pianoLH } >>
   >>
