@@ -15,9 +15,14 @@
   system-system-spacing =
     #'((basic-distance . 0)
        (minimum-distance . 0)
-       (padding . 2)
+       (padding . 0)
        (stretchability . 100))
-  ragged-last-bottom = ##f
+  score-markup-spacing =
+    #'((basic-distance . 0)
+       (minimum-distance . 0)
+       (padding . -2)
+       (stretchability . 80))
+  ragged-last-bottom = ##t
   ragged-bottom = ##f
   two-sided = ##t
   inner-margin = 1\in
@@ -82,8 +87,9 @@ sopMusic = \relative c' {
   }
   \alternative {
     {g2\bar""\break}
-    {g2.\bar"|."}
+    {g2.\bar":|:"}
   }
+  \break
 }
 sopWords = \lyricmode {
   \set stanza = #"1. "
@@ -91,6 +97,15 @@ sopWords = \lyricmode {
   Should bring forth a Sav -- iour which now we be -- hold,
   To be our Re -- deem -- er from Death, Hell, and Sin,
   Which A -- dam’s Trans -- gres -- sion in -- vol -- ved us in.
+
+  Then let us be Mer -- ry, cast Sor -- row a -- way,
+  Our Sav -- iour Christ Je -- sus was born on this Day.
+
+  \set stanza = #"4. "
+  But Ma -- ry, blest \set ignoreMelismata = ##t Ma -- ry, \unset ignoreMelismata so meek and so mild,
+  Soon wrapt up in Swad -- lings this Heav -- en -- ly Child;
+  Con -- tent -- ed, she laid him where Ox -- en did feed,
+  The great God of Na -- ture ap -- prov’d of the Deed.
 
   Then let us be Mer -- ry, cast Sor -- row a -- way,
   Our Sav -- iour Christ Je -- sus was born on this Day.
@@ -102,6 +117,14 @@ sopWordsII = \lyricmode {
   That Jo -- seph and Ma -- ry to -- geth -- er did pass;
   And for to be Tax -- ed with Ma -- ry Straight -- ways,
   Old Cæ -- sar com -- mand -- ed, he quick -- ly o -- beys.
+
+  \repeat unfold 22 \skip1
+
+  \set stanza = #"5. "
+  To teach us Hu -- \set ignoreMelismata = ##t mil -- i -- \unset ignoreMelismata ty, all this was done,
+  Then learn we from hence haugh -- ty Pride for to shun;
+  A Man -- ger’s his Cra -- dle, who came from A -- bove,
+  The great God of Mer -- cy, of Peace, and of Love.
 }
 
 sopWordsIII = \lyricmode {
@@ -110,30 +133,23 @@ sopWordsIII = \lyricmode {
   She brought forth her First -- born to save all Man -- kind;
   The Inn be -- ing full; for this Heav -- en -- ly Guest,
   No place there was found where to lay him to rest.
-}
 
-sopWordsIV = \lyricmode {
-  \set stanza = #"4. "
-  But Ma -- ry, blest \set ignoreMelismata = ##t Ma -- ry, \unset ignoreMelismata so meek and so mild,
-  Soon wrapt up in Swad -- lings this Heav -- en -- ly Child;
-  Con -- tent -- ed, she laid him where Ox -- en did feed,
-  The great God of Na -- ture ap -- prov’d of the Deed.
-}
+  \repeat unfold 22 \skip1
 
-sopWordsV = \lyricmode {
-  \set stanza = #"5. "
-  To teach us Hu -- \set ignoreMelismata = ##t mil -- i -- \unset ignoreMelismata ty, all this was done,
-  Then learn we from hence haugh -- ty Pride for to shun;
-  A Man -- ger’s his Cra -- dle, who came from A -- bove,
-  The great God of Mer -- cy, of Peace, and of Love.
-}
-
-sopWordsVI = \lyricmode {
   \set stanza = #"6. "
   The pres -- ent -- ly \set ignoreMelismata = ##t af -- ter \unset ignoreMelismata the Shep -- herds did spy,
   Vast Num -- bers of An -- gels to stand in the Sky;
   So mer -- ri -- ly Talk -- ing, so sweet they did Sing,
   All Glo -- ry and Praise to our Heav -- en -- ly King.
+}
+
+sopWordsIV = \lyricmode {
+}
+
+sopWordsV = \lyricmode {
+}
+
+sopWordsVI = \lyricmode {
 }
 
 altoMusic = \relative c' {
@@ -242,8 +258,8 @@ pianoLH = \relative c' {
 <<
    \new ChoirStaff <<
     \new Staff = women <<
-      \new Voice = "sopranos" { \voiceOne << \global \sopMusic >> }
-      \new Voice = "altos" { \voiceTwo << \global \altoMusic >> }
+      \new Voice = "sopranos" { \voiceOne << \global \repeat unfold 2 \sopMusic >> }
+      \new Voice = "altos" { \voiceTwo << \global \repeat unfold 2 \altoMusic >> }
     >>
     \new Lyrics = "altos"
     \new Lyrics = "altosII"  \lyricsto "sopranos" \sopWordsII
@@ -253,8 +269,8 @@ pianoLH = \relative c' {
     \new Lyrics = "altosV"  \lyricsto "sopranos" \sopWordsVI
    \new Staff = men <<
       \clef bass
-      \new Voice = "tenors" { \voiceOne << \global \tenorMusic >> }
-      \new Voice = "basses" { \voiceTwo << \global \bassMusic >> }
+      \new Voice = "tenors" { \voiceOne << \global \repeat unfold 2 \tenorMusic >> }
+      \new Voice = "basses" { \voiceTwo << \global \repeat unfold 2 \bassMusic >> }
     >>
     \context Lyrics = "altos" \lyricsto "sopranos" \sopWords
     \new Lyrics \with { alignAboveContext = #"tenors" } \lyricsto "tenors" \tenorWordsIII
