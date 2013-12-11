@@ -37,19 +37,23 @@ for(var i in allFiles){
 allFiles = temp.sort().slice();
 var pages = '';
 //TODO: del mapped\* -Recurse;
-var toc = fs.readFileSync('ly/!Contents.ly','utf8');
-var contents = fs.readFileSync('ly/Contents/!contents.ly','utf8');
-var date = new Date();
-var months = ["january","february","march","april","may","june","july","august","september","october","november","december"];
-toc = toc.replace('%date%',date.getDate());
-toc = toc.replace('%month%',months[date.getMonth()]);
-toc = toc.replace('%year%',date.getFullYear());
-if(toc.indexOf('%CONTENTS%') >= 0) {
-  toc = toc.replace('%CONTENTS%',contents);
-} else {
-  toc += contents;
+var tocFileName = 'ly/!Contents.ly';
+var contentsFileName = 'ly/Contents/!contents.ly';
+var toc = fs.existsSync(tocFileName) && fs.readFileSync(tocFileName,'utf8');
+var contents = fs.existsSync(contentsFileName) && fs.readFileSync(contentsFileName,'utf8');
+if(toc && contents) {
+    var date = new Date();
+    var months = ["january","february","march","april","may","june","july","august","september","october","november","december"];
+    toc = toc.replace('%date%',date.getDate());
+    toc = toc.replace('%month%',months[date.getMonth()]);
+    toc = toc.replace('%year%',date.getFullYear());
+    if(toc.indexOf('%CONTENTS%') >= 0) {
+      toc = toc.replace('%CONTENTS%',contents);
+    } else {
+      toc += contents;
+    }
+    fs.writeFileSync('ly/mapped/0.ly',toc);
 }
-fs.writeFileSync('ly/mapped/0.ly',toc);
 for(var j in map) {
     var file = map[j].trim().replace(regexComment,'');
     if(file.length === 0) {
