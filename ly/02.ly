@@ -17,7 +17,7 @@
        (minimum-distance . 0)
        (padding . 2)
        (stretchability . 100))
-  ragged-last-bottom = ##f
+  ragged-last-bottom = ##t
   ragged-bottom = ##f
   two-sided = ##t
   inner-margin = 1\in
@@ -83,6 +83,7 @@ sopMusic = \relative c' {
     b4.( a8 g2) g |
     g1
   }
+  \break
 }
 sopWords = \lyricmode {
   \set stanza = #"1. "
@@ -91,6 +92,12 @@ sopWords = \lyricmode {
   Which Way our Ac -- cents raise,
   To wel -- come the __ mis -- te -- rious King.
   And sing, __ and sing, __ and sing __ a Sav -- iour’s Praise.
+
+  \set stanza = #"5. "
+  Long let the u -- ni -- ver -- sal Frame
+  The great Re -- deem -- er __ sing,
+  And Men and An -- gels at __ the Name
+  Bow to, __ bow to, __ bow to __ the mys -- tic King.
 }
 
 sopWordsII = \lyricmode {
@@ -100,6 +107,12 @@ sopWordsII = \lyricmode {
   Up to a Theme so __ high,
   When An -- gels ne’er __ cou’d soar __ that Pitch,
   Who dwell, __ who dwell, __ who dwell a -- bove the Sky?
+
+  \set stanza = #"6. "
+  Re -- demp -- tion be the gen -- ’ral Sound,
+  This Day no Grief ap -- pear,
+  From Earth to Heav’n the Notes re -- bound,
+  And Mer -- cy, Mer -- cy, Mer -- cy smiled to hear.
 }
 
 sopWordsIII = \lyricmode {
@@ -109,6 +122,12 @@ sopWordsIII = \lyricmode {
   Th’Im -- mor -- tal mor -- tal __ grows,
   Made Man by this __ stu -- pen -- dious Birth
   To quell, __ to quell, __ to quell our dead -- ly Foes.
+
+  \set stanza = #"7. "
+  Oh! ’tis too lit -- tle all we can
+  For this un -- bound -- ed __ Love,
+  All that was ev -- er writ __ by Man,
+  Or sung, __ or sung, __ or sung in Hymns a -- bove.
 }
 
 sopWordsIV = \lyricmode {
@@ -118,38 +137,24 @@ sopWordsIV = \lyricmode {
   To hu -- man Flesh de -- based,
   That we, His dear -- ly ran -- som’d Prize,
   Might be, __ might be, __ might be __ to Glo -- ry rais’d.
-}
 
-sopWordsV = \lyricmode {
-  \set stanza = #"5. "
-  Long let the u -- ni -- ver -- sal Frame
-  The great Re -- deem -- er __ sing,
-  And Men and An -- gels at __ the Name
-  Bow to, __ bow to, __ bow to __ the mys -- tic King.
-}
-
-sopWordsVI = \lyricmode {
-  \set stanza = #"6. "
-  Re -- demp -- tion be the gen -- ’ral Sound,
-  This Day no Grief ap -- pear,
-  From Earth to Heav’n the Notes re -- bound,
-  And Mer -- cy, Mer -- cy, Mer -- cy smiled to hear.
-}
-
-sopWordsVII = \lyricmode {
-  \set stanza = #"7. "
-  Oh! ’tis too lit -- tle all we can
-  For this un -- bound -- ed __ Love,
-  All that was ev -- er writ __ by Man,
-  Or sung, __ or sung, __ or sung in Hymns a -- bove.
-}
-
-sopWordsVIII = \lyricmode {
   \set stanza = #"8. "
   But tho’ we can’t fit Lan -- guage find,
   We Praise, Be -- lieve, A -- dore!
   With joy -- ful Hearts, and Souls re -- sign’d,
   And wish, __ and wish, __ and wish we could do more!
+}
+
+sopWordsV = \lyricmode {
+}
+
+sopWordsVI = \lyricmode {
+}
+
+sopWordsVII = \lyricmode {
+}
+
+sopWordsVIII = \lyricmode {
 }
 
 altoMusic = \relative c' {
@@ -275,8 +280,8 @@ pianoLH = \relative c' {
 <<
    \new ChoirStaff <<
     \new Staff = women <<
-      \new Voice = "sopranos" { \voiceOne << \global \sopMusic >> }
-      \new Voice = "altos" { \voiceTwo << \global \altoMusic >> }
+      \new Voice = "sopranos" { \voiceOne << \global \repeat unfold 2 \sopMusic >> }
+      \new Voice = "altos" { \voiceTwo << \global \repeat unfold 2 \altoMusic >> }
     >>
     \new Lyrics = "altos"
     \new Lyrics = "altosII"  \lyricsto "altos" \sopWordsII
@@ -288,8 +293,8 @@ pianoLH = \relative c' {
     \new Lyrics = "altosV"  \lyricsto "altos" \sopWordsVIII
    \new Staff = men <<
       \clef bass
-      \new Voice = "tenors" { \voiceOne << \global \tenorMusic >> }
-      \new Voice = "basses" { \voiceTwo << \global \bassMusic >> }
+      \new Voice = "tenors" { \voiceOne << \global \repeat unfold 2 \tenorMusic >> }
+      \new Voice = "basses" { \voiceTwo << \global \repeat unfold 2 \bassMusic >> }
     >>
     \context Lyrics = "altos" \lyricsto "sopranos" \sopWords
     \new Lyrics \with { alignAboveContext = #"tenors" } \lyricsto "tenors" \tenorWordsIII
