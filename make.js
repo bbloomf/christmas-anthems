@@ -151,7 +151,10 @@ for(var j in map) {
                 current = current.slice(0, pos) + "\n  print-all-headers = ##t\n  ragged-right = ##f" +
                     current.slice(pos);
                 //set ragged-last = ##f
-                current = current.replace(regexRaggedLast,'ragged-last-bottom = ##f');
+                //if there is a trailing semicolon, don't set ragged last to false
+                var raggedLast = (m[2].slice(-1)==';')?'t':'f';
+                
+                current = current.replace(regexRaggedLast,'ragged-last-bottom = ##' + raggedLast);
             }
             
             result += current;
@@ -165,7 +168,7 @@ for(var j in map) {
                 current = fs.readFileSync('ly/' + files[i],'utf8');
                 continue;
             }
-            if(i >= lys.length) {
+            if(i >= lys.length || !lys[i]) {
                 break;
             }
             file = lys[i] + '.ly';

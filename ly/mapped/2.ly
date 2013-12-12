@@ -86,7 +86,7 @@ sopMusic = \relative c' {
       \partial 2 b4 g
     }
     {
-      b4 g2
+      b4 g2^\markup\italic"To Coda"
     }
   }
 
@@ -111,7 +111,7 @@ sopMusic = \relative c' {
     }
     {
       \time 3/4
-      \partial 2 g2^\markup"D.S." |
+      \partial 2 g2^\markup\italic"D.S." |
     }
   }
   
@@ -139,7 +139,7 @@ sopMusic = \relative c' {
   }%}
   %page (10)
   \pageBreak\time 2/2
-  b2\rest b4\rest r |
+  b2\rest\coda b4\rest r |
   r1 |
   r2 r4
 
@@ -293,7 +293,7 @@ altoMusic = \relative c' {
 
   %page2 (6)
   d4 d d |
-  g( g8[ fis] e4) |
+  g~( g8[ fis] e4) |
   d4. d8 d4 |
   e4. e8 d4 |
   b b d\rest |
@@ -617,8 +617,8 @@ bassMusic = \relative c' {
 
   %page7 (11)
   fis8.[ g16 a8] a, d4. b8 |
-  c8.[ d16 c8. d16 e8. d16 e8. fis16]( |
-  g8.[) a16 g8. fis16] g8.[ a16 b8. a16] |
+  c8.[ d16 c8. d16 e8. d16 e8. fis16] |
+  g8.[ a16 g8. fis16 g8. a16 b8. a16] |
   g4. fis8 g4 g |
 
   \voiceTwo
@@ -705,7 +705,7 @@ pianoLH = \relative c' {
   \layout {
     \context {
       \Lyrics
-      \override LyricText #'font-size = #1.3
+      \override LyricText #'font-size = #1.1
       \override VerticalAxisGroup #'staff-affinity = #0
       \override LyricText #'X-offset = #center-on-word
     }
