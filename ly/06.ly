@@ -70,7 +70,7 @@ sopMusic = \relative c' {
   b a b cis |
   d2. \bar""
 
-  c4 |
+  c!4 |
   b a e d |
   g b8[ d] b4 g |
   a4 \bar""
