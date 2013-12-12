@@ -87,6 +87,36 @@ sopMusic = \relative c' {
     {g2.\bar":|:"}
   }
   \break
+
+  g4 |
+  g d' d8[ c] |
+  b4 b b8[ a] |
+  g4 b a8[ g] |
+  g2 \bar""
+
+  g4 |
+  g d' d8[ c] |
+  b4 b b8[ a] |
+  g4 b a8[ g] |
+  g2 \bar""
+
+  \repeat unfold 2 {
+    b4 |
+    a4 a c |
+    b g g |
+    b d cis |
+    d2 \bar""
+
+    b4 |
+    c8.[ d16] e8[ d] c4 |
+    d d b8[ a] |
+    g4 b a8[ g] |
+  }
+  \alternative {
+    {g2\bar""\break}
+    {g2.\bar":|:"}
+  }
+  \break
 }
 sopWords = \lyricmode {
   \set stanza = #"1. "
@@ -178,6 +208,36 @@ altoMusic = \relative c' {
     {b2}
     {b2.}
   }
+
+
+  b4 |
+  d d fis |
+  g4 g d4 |
+  e e d |
+  b2 \bar""
+
+  b4 |
+  d d fis |
+  g g d |
+  e e d |
+  b2 \bar""
+
+  \repeat unfold 2 {
+    b4 |
+    d d e |
+    d b b |
+    d d e |
+    fis2 \bar""
+
+    g8[ fis] |
+    e4 e g |
+    fis d d |
+    e e d |
+  }
+  \alternative {
+    {b2}
+    {b2.}
+  }
 }
 altoWords = \lyricmode {
 }
@@ -242,6 +302,36 @@ bassMusic = \relative c' {
     {g,2}
     {g2.}
   }
+
+
+  g4 |
+  g' g d |
+  e4 e g8[ fis] |
+  e4 c d |
+  g,2 \bar""
+
+  g4 |
+  g' g d |
+  e e g8[ fis] |
+  e4 c d |
+  g,2 \bar""
+
+  \repeat unfold 2 {
+    g4 |
+    d' d c |
+    g' g e |
+    b' b a |
+    d,2 \bar""
+
+    e8[ d] |
+    c4 c e |
+    d d g8[ fis] |
+    e4 c d |
+  }
+  \alternative {
+    {g,2}
+    {g2.}
+  }
 }
 bassWords = \lyricmode {
 }
@@ -255,8 +345,8 @@ pianoLH = \relative c' {
 <<
    \new ChoirStaff <<
     \new Staff = women <<
-      \new Voice = "sopranos" { \voiceOne << \global \repeat unfold 2 \sopMusic >> }
-      \new Voice = "altos" { \voiceTwo << \global \repeat unfold 2 \altoMusic >> }
+      \new Voice = "sopranos" { \voiceOne << \global \sopMusic >> }
+      \new Voice = "altos" { \voiceTwo << \global \altoMusic >> }
     >>
     \new Lyrics = "altos"
     \new Lyrics = "altosII"  \lyricsto "sopranos" \sopWordsII
@@ -266,8 +356,8 @@ pianoLH = \relative c' {
     \new Lyrics = "altosV"  \lyricsto "sopranos" \sopWordsVI
    \new Staff = men <<
       \clef bass
-      \new Voice = "tenors" { \voiceOne << \global \repeat unfold 2 \tenorMusic >> }
-      \new Voice = "basses" { \voiceTwo << \global \repeat unfold 2 \bassMusic >> }
+      \new Voice = "tenors" { \voiceOne << \global \tenorMusic >> }
+      \new Voice = "basses" { \voiceTwo << \global \bassMusic >> }
     >>
     \context Lyrics = "altos" \lyricsto "sopranos" \sopWords
     \new Lyrics \with { alignAboveContext = #"tenors" } \lyricsto "tenors" \tenorWordsIII
