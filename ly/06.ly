@@ -104,7 +104,7 @@ sopWords = \lyricmode {
 
 sopWordsII = \lyricmode {
   \set stanza = #"2. "
-  Shall An -- gels sing, __ and shell Men si -- lent be;
+  Shall An -- gels sing, __ and shall Men si -- lent be;
   Nor im -- i -- tate their Heav’n -- ly Har -- mo -- ny?
   Rouse up my Soul, de -- clare that on this Morn,
   Un -- to Man -- kind on Earth, is a Mes -- si -- ah born.

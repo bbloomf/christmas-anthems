@@ -88,7 +88,7 @@ sopWords = \lyricmode {
 sopWordsII = \lyricmode {
   \set stanza = #"2. "
   So loud they sung, that down to, down to Earth,
-  in -- no cent Chil -- dren heard their Mirth;
+  in -- no -- cent Chil -- dren heard their Mirth;
 
   And sung with them what none could, none could say,
   for Joy their Prince was born that Day.

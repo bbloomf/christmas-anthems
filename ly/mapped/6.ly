@@ -164,7 +164,7 @@ sopWordsIII = \lyricmode {
   \repeat unfold 22 \skip1
 
   \set stanza = #"6. "
-  The pres -- ent -- ly \set ignoreMelismata = ##t af -- ter \unset ignoreMelismata the Shep -- herds did spy,
+  Then pres -- ent -- ly \set ignoreMelismata = ##t af -- ter \unset ignoreMelismata the Shep -- herds did spy,
   Vast Num -- bers of An -- gels to stand in the Sky;
   So mer -- ri -- ly Talk -- ing, so sweet they did Sing,
   All Glo -- ry and Praise to our Heav -- en -- ly King.
