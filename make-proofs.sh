@@ -16,6 +16,7 @@ then
   #pdftk A=\!full.pdf cat Aeven output even.pdf
   echo 'Combining PDFs...'
   pdftk A=title.pdf B=\!full.pdf C=Original_Anthems_8.5x11.pdf cat A B C output christmas-anthems.pdf
+  pdftk A=title.pdf B=\!full.pdf cat A B output christmas-anthems-no-original.pdf
   #gswin64c -o \!odd.pdf -dBATCH -dNOPAUSE -sDEVICE=pdfwrite -c "[/CropBox [64.8 18 565.2 774] /PAGES pdfmark" -f odd.pdf
   #gswin64c -o \!even.pdf -dBATCH -dNOPAUSE -sDEVICE=pdfwrite -c "[/CropBox [46.8 18 547.2 774] /PAGES pdfmark" -f even.pdf
 
